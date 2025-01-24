@@ -5,6 +5,9 @@ import "./Login.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useContext } from "react";
+import AuthContext from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const loginSchema = yup.object().shape({
   email: yup
@@ -18,6 +21,9 @@ const loginSchema = yup.object().shape({
 });
 
 function Login() {
+
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -25,6 +31,8 @@ function Login() {
   } = useForm({
     resolver: yupResolver(loginSchema), // Integra Yup ao react-hook-form
   });
+
+  const { login } = useContext(AuthContext);
 
   // Função chamada ao enviar o formulário
   const onSubmit = async (data) => {
@@ -35,7 +43,8 @@ function Login() {
       );
       const token = response.data.accessToken;
       toast.success("Login bem-sucedido!", { position: "top-right" });
-      localStorage.setItem("token", token);
+      login(token); // Agora usamos o contexto para autenticar o usuário
+      navigate("/dashboard");
     } catch (error) {
       toast.error("Erro ao fazer login. Verifique suas credenciais!", { position: "top-right" });
       console.log(error);
