@@ -17,7 +17,7 @@ Este repositório contém a interface frontend do sistema de autenticação, des
 
 ### 1️⃣ **Clone o Repositório**
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+https://github.com/LucasIbiapino7/login-page.git
 ```
 
 ### 2️⃣ **Instale as Dependências**
