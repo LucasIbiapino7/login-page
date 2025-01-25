@@ -76,7 +76,7 @@ function Login() {
         </button>
 
         <div className="login-links">
-          <Link to="/register" className="register-button">
+          <Link to="/cadastro" className="register-button">
             Criar conta
           </Link>
           <Link to="/forgot-password" className="forgot-password">

@@ -12,7 +12,7 @@ function Dashboard() {
 
   const handleLogout = () => {
     logout();
-    navigate("/login"); // Agora o redirecionamento acontece corretamente
+    navigate("/login"); 
   };
 
   return (
